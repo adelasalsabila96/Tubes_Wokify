@@ -59,109 +59,59 @@ mysqli_close($conn);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Job Application</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Upload CV dan Portofolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 </head>
 
-<body class="bg-white">
-    <header class="bg-gradient-to-r from-blue-500 via-blue-400 to-blue-600 shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center px-6 py-4">
-            <!-- Logo -->
-            <div class="flex items-left space-x-4">
-                <img src="../asset/img/logo.png" alt="Workify Logo" class="h-10">
-                <div>
-                    <h1 class="text-2xl font-extrabold text-white tracking-tight">WORKIFY</h1>
-                    <p class="text-sm text-blue-200">Find Your Dream Job</p>
-                </div>
-            </div>
-
-            <!-- Navigation Menu -->
-            <nav class="hidden md:flex items-center space-x-6">
-                <a href="beranda.php" class="text-yellow-300 font-medium hover:text-yellow-300 transition">Cari Lowongan</a>
-                <a href="template.html" class="text-white font-medium hover:text-yellow-300 transition">Template CV</a>
-            </nav>
-        </div>
-    </header>
+<body class="bg-gray-50">
 
     <main class="container mx-auto mt-10 max-w-3xl bg-white p-6 rounded-lg shadow-md">
-        <div class="text-center">
-            <img src="../asset/img/kredivo.jpg" alt="Gojek Logo" class="mx-auto" width="100" height="100" />
-            <h1 class="text-2xl font-semibold mt-4 text-gray-800">Melamar untuk</h1>
-            <h2 class="text-xl font-semibold text-gray-800">Field Collector</h2>
-            <p class="text-gray-600">Kredivo Group</p>
-        </div>
+        <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">Unggah CV dan Portofolio</h1>
 
-        <!-- Progress Bar -->
-        <div class="flex justify-center mt-6 items-center">
-            <div class="text-center">
-                <div class="w-8 h-8 bg-blue- 500 rounded-full inline-block"></div>
-                <p class="mt-2 text-gray-400">Mengisi Data</p>
-            </div>
-            <div class="flex-grow border-t-2 border-blue-200 mx-2"></div>
-
-            <div class="text-center">
-                <div class="w-8 h-8 bg-blue-500 rounded-full inline-block"></div>
-                <p class="mt-2 text-gray-800">Mengunggah CV dan Portofolio</p>
-            </div>
-            <div class="flex-grow border-t-2 border-gray-300 mx-2"></div>
-
-            <div class="text-center">
-                <div class="w-8 h-8 bg-gray-300 rounded-full inline-block"></div>
-                <p class="mt-2 text-gray-400">Terkirim</p>
-            </div>
-        </div>
-
-        <!-- Upload Section -->
-        <form action="beranda.php" method="POST" enctype="multipart/form-data" class="mt-10 space-y-6">
+        <!-- Form -->
+        <form action="selesai.php" method="POST" enctype="multipart/form-data" class="space-y-6">
             <!-- CV Upload -->
-            <div class="bg-gray-100 p-6 rounded-lg shadow-md text-center">
-                <h3 class="text-lg font-semibold mb-4">Upload CV</h3>
-                <input id="cv-upload" name="cv_file" type="file" class="hidden" accept=".pdf,.doc,.docx" required />
-                <button class="bg-blue-600 text-white py-2 px-4 rounded" onclick="document.getElementById('cv-upload').click();">
-                    UNGGAH
-                </button>
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center">
+                <h2 class="text-lg font-semibold text-gray-800 mb-4">Upload CV</h2>
+                <label for="cv-upload" class="relative w-64 h-40 border-dashed border-2 border-gray-300 rounded-lg flex items-center justify-center cursor-pointer">
+                    <input id="cv-upload" type="file" name="cv_file" accept=".pdf,.doc,.docx" class="absolute inset-0 opacity-0 cursor-pointer" required>
+                    <div class="flex flex-col items-center space-y-2 text-gray-400">
+                        <i class="fas fa-upload text-4xl"></i>
+                        <span class="text-sm">Klik atau seret file ke sini</span>
+                    </div>
+                </label>
             </div>
 
             <!-- Portfolio Upload -->
-            <div class="bg-gray-100 p-6 rounded-lg shadow-md text-center">
-                <h3 class="text-lg font-semibold mb-4">Portofolio</h3>
-                <input id="portfolio-upload" name="portfolio_file" type="file" class="hidden" accept=".pdf,.doc,.docx" required />
-                <button class="bg-blue-600 text-white py-2 px-4 rounded" onclick="document.getElementById('portfolio-upload').click();">
-                    UNGGAH
-                </button>
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center">
+                <h2 class="text-lg font-semibold text-gray-800 mb-4">Upload Portofolio</h2>
+                <label for="portfolio-upload" class="relative w-64 h-40 border-dashed border-2 border-gray-300 rounded-lg flex items-center justify-center cursor-pointer">
+                    <input id="portfolio-upload" type="file" name="portfolio_file" accept=".pdf,.doc,.docx" class="absolute inset-0 opacity-0 cursor-pointer" required>
+                    <div class="flex flex-col items-center space-y-2 text-gray-400">
+                        <i class="fas fa-upload text-4xl"></i>
+                        <span class="text-sm">Klik atau seret file ke sini</span>
+                    </div>
+                </label>
             </div>
 
-            <!-- Next Button -->
-            <div class="text-center mt-8">
+            <!-- Submit Button -->
+            <div class="text-center">
                 <button type="submit" class="bg-blue-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-blue-700">
-                    SIMPAN
+                    Simpan
                 </button>
             </div>
         </form>
     </main>
 
-    <footer class="bg-gradient-to-r from-blue-500 via-blue-400 to-blue-600 text-white py-4 mt-10">
-        <div class="container mx-auto text-center">
-            <p class="text-white">© 2024 Workify. All rights reserved.</p>
-        </div>
+    <footer class="bg-blue-500 text-white py-4 mt-10 text-center">
+        <p>&copy; 2024 Workify. All rights reserved.</p>
     </footer>
 
-    <script>
-        document.getElementById('cv-upload').addEventListener('change', function () {
-            if (this.files && this.files[0]) {
-                alert('CV berhasil diunggah: ' + this.files[0].name);
-            }
-        });
-
-        document.getElementById('portfolio-upload').addEventListener('change', function () {
-            if (this.files && this.files[0]) {
-                alert('Portofolio berhasil diunggah: ' + this.files[0].name);
-            }
-        });
-    </script>
 </body>
+
 </html>
